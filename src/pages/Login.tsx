@@ -20,10 +20,14 @@ export default function Login() {
 
         try {
             const response = await api.post('/auth/login', { username, password });
-            const { role, especialidad } = response.data;
+            // 1. Añadimos el "token" a la desestructuración
+            const { role, especialidad, token } = response.data;
             // NUEVO: Guardamos el username para saludarlo
             localStorage.setItem('username', username);
-
+            // 2. Guardamos el token en la memoria del navegador
+            if (token) {
+                localStorage.setItem('token', token);
+            }
             if (especialidad) localStorage.setItem('juezEspecialidad', especialidad);
             
             if (role === 'Organizer') navigate('/organizador');
