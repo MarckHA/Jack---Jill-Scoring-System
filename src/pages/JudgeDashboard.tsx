@@ -243,8 +243,7 @@ export default function JudgeDashboard() {
                                     localStorage.clear(); 
                                     navigate('/login'); 
                                 }} 
-                                className="w-full text-left px-6 py-5 ..."
-                            >
+                                className="w-full text-left px-6 py-5 text-[11px] font-semibold tracking-[0.2em] uppercase text-red-400 hover:bg-white/5 transition-colors flex items-center justify-between">
                                 <span>Cerrar Sesión</span>
                             </button>
                         </div>
