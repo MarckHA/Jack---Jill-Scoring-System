@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // REEMPLAZA ESTO CON EL NOMBRE EXACTO QUE LE DARÁS AL REPOSITORIO EN GITHUB
-  base: '/Jack-&-Jill-Scoring-System/', 
+  base: '/Jack---Jill-Scoring-System/', 
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'axios']
   }
