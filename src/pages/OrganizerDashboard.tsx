@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import { type Fase, type Categoria, type Rol } from '../types';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 interface Resultado {
     competidorId: string;
@@ -12,6 +13,7 @@ interface Resultado {
 type Tab = 'dashboard' | 'registro';
 
 export default function OrganizerDashboard() {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState<Tab>('dashboard');
     
     // NUEVOS ESTADOS DE FASE SEPARADA
@@ -215,9 +217,14 @@ export default function OrganizerDashboard() {
                                 <p className="text-sm font-bold text-[#DFBA84]">¡Hola, {localStorage.getItem('username')}!</p>
                             </div>
 
-                            <button onClick={() => { localStorage.clear(); window.location.href = '/login'; }} className="w-full text-left px-6 py-5 text-[11px] font-semibold tracking-[0.2em] uppercase text-red-400 hover:bg-white/5 transition-colors flex items-center justify-between">
+                            <button 
+                                onClick={() => { 
+                                    localStorage.clear(); 
+                                    navigate('/login'); 
+                                }} 
+                                className="w-full text-left px-6 py-5 ..."
+                            >
                                 <span>Cerrar Sesión</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                             </button>
                         </div>
                     )}
